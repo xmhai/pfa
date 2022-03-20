@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: common-service-deployment
+  name: pfa-common-service-deployment
   labels:
-    component: common-service
+    component: pfa-common-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: common-service
+      component: pfa-common-service
   template:
     metadata:
       labels:
-        component: common-service
+        component: pfa-common-service
     spec:
       containers:
-        - name: common-service
-          image: harbor.home:9443/library/common-service
+        - name: pfa-common-service
+          image: harbor.home:9443/library/pfa-common-service
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -38,11 +38,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: common-service
+  name: pfa-common-service
 spec:
   type: ClusterIP
   selector:
-    component: common-service
+    component: pfa-common-service
   ports:
     - port: 8080
       targetPort: 8080

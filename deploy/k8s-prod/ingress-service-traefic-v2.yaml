@@ -11,28 +11,28 @@ spec:
     middlewares:
     - name: pfa-stripprefix
     services:
-    - name: frontend-service
+    - name: pfa-frontend-service
       port: 80
   - match: PathPrefix(`/api/account`)
     kind: Rule
     middlewares:
     - name: pfa-stripprefix
     services:
-    - name: account-service
+    - name: pfa-account-service
       port: 8080
   - match: PathPrefix(`/api/common`)
     kind: Rule
     middlewares:
     - name: pfa-stripprefix
     services:
-    - name: common-service
+    - name: pfa-common-service
       port: 8080
   - match: PathPrefix(`/api/stock`)
     kind: Rule
     middlewares:
     - name: pfa-stripprefix
     services:
-    - name: stock-service
+    - name: pfa-stock-service
       port: 8080
     
 ---
